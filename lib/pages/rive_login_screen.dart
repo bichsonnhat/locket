@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:locket/pages/navigation_page.dart';
 import 'package:rive/rive.dart' as rive;
 
 class RiveLoginScreen extends StatefulWidget {
@@ -53,7 +54,7 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
             begin: Alignment.topCenter,
             colors: [
               const Color.fromARGB(255, 238, 148, 4),
-              Color.fromARGB(255, 244, 225, 57),
+              const Color.fromARGB(255, 244, 225, 57),
               Colors.yellow[100]!
             ]
           )
@@ -61,14 +62,14 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 80,),
+            const SizedBox(height: 80,),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text(
-                    "Login", 
+                  const Text(
+                    "LOGIN", 
                     style: TextStyle(
                       color: Colors.white, 
                       fontSize: 40, 
@@ -76,15 +77,15 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                       fontFamily: 'BanonkuRegular',
                     ),
                   ),
-                  SizedBox(height: 0,),
+                  const SizedBox(height: 0,),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start, // Align items to the top
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Text.rich( // Expand text to fill available space
                           TextSpan(
                             children: [
-                              const TextSpan(
+                              TextSpan(
                                 text: "Hey, enter your details to get sign in\nto your account </>.\n\nLet's try Locket Premium!",
                                 style: TextStyle(
                                   color: Colors.white,
@@ -109,12 +110,12 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
             ),
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60))
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(30),
+                  padding: const EdgeInsets.all(30),
                   child: Column(
                     children: <Widget>[
                       SizedBox(
@@ -143,7 +144,7 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
-                          boxShadow: [BoxShadow(
+                          boxShadow: const [BoxShadow(
                             color: Color.fromRGBO(229, 233, 3, 0.694),
                             blurRadius: 20,
                             offset: Offset(0, 2.5)
@@ -152,7 +153,7 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(color: Colors.yellow[200]!)),
                                 borderRadius: BorderRadius.circular(10)
@@ -166,9 +167,9 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                                     controller: _emailController,
                                     decoration: InputDecoration(
                                       hintText: "Email",
-                                      hintStyle: TextStyle(color: Colors.grey),
+                                      hintStyle: const TextStyle(color: Colors.grey),
                                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                                      prefixIcon: Icon(Icons.email, color: Colors.grey),
+                                      prefixIcon: const Icon(Icons.email, color: Colors.grey),
                                     ),
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
@@ -177,14 +178,14 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                                       return null;
                                     },
                                   ),
-                                  SizedBox(height: 10,),
+                                  const SizedBox(height: 10,),
                                   TextFormField(
                                     onTap: hidePassword,
                                     controller: _passwordController,
                                     obscureText: _obscureText,
                                     decoration: InputDecoration(
                                       hintText: "Password",
-                                      hintStyle: TextStyle(color: Colors.grey),
+                                      hintStyle: const TextStyle(color: Colors.grey),
                                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                                       prefixIcon: const Icon(Icons.lock, color: Colors.grey),
                                       suffixIcon: IconButton(
@@ -212,10 +213,10 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 40,),
+                      const SizedBox(height: 40,),
                       Container(
                         height: 50,
-                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        margin: const EdgeInsets.symmetric(horizontal: 50),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
                           color: const Color.fromARGB(255, 233, 210, 3)
@@ -223,7 +224,8 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                         child: Center(
                           child: InkWell(
                             onTap: () {
-                              if (_formKey.currentState!.validate()) {
+                              if (_formKey.currentState!.validate()) {    
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const NavigationPage()));
                                 isFocus?.change(false);
                                 IsPassword?.change(false);
                                 login_success?.change(true);
@@ -235,12 +237,12 @@ class _RiveLoginScreenState extends State<RiveLoginScreen> {
                                 login_fail?.change(true);
                               }
                             },
-                            child: Text("Login ", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                            child: const Text("Login ", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                           ),
                         ),
                       ),
-                      SizedBox(height: 30,),
-                      Text("© 2024 Designed by Nhattt", style: TextStyle(color: Colors.grey),)
+                      const SizedBox(height: 150,),
+                      const Text("© 2024 Designed by Nhattt", style: TextStyle(color: Colors.grey),)
                     ],
                   ),
                 ),
